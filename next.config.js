@@ -8,6 +8,16 @@ const nextConfig = {
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
+  // Add trailing slash for better static file serving
+  trailingSlash: true,
+  // Ensure proper MIME types for static files
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(js|mjs|jsx)$/,
+      type: 'javascript/auto',
+    });
+    return config;
+  },
 }
 
 module.exports = nextConfig 
