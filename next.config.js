@@ -22,6 +22,29 @@ const nextConfig = {
   basePath: '',
   // Add asset prefix if needed
   assetPrefix: '',
+  // Add custom headers
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.js',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/javascript',
+          },
+        ],
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig 
