@@ -15,11 +15,21 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     try {
+      console.log('Attempting to sign in with:', email);
       await signIn(email, password);
+      console.log('Sign in successful');
       router.push('/');
     } catch (error) {
-      setError(error instanceof Error ? error.message : "Invalid email or password");
+      console.error('Sign in error:', error);
+      if (error instanceof Error) {
+        setError(error.message);
+      } else if (typeof error === 'string') {
+        setError(error);
+      } else {
+        setError("Invalid email or password. Please try again.");
+      }
     }
   };
 
