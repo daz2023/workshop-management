@@ -18,6 +18,10 @@ const nextConfig = {
     });
     return config;
   },
+  // Add base path if needed
+  basePath: '',
+  // Add asset prefix if needed
+  assetPrefix: '',
 }
 
 module.exports = nextConfig 
