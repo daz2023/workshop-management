@@ -11,6 +11,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const { signIn } = useAuth();
   const router = useRouter();
+  // Updated login page for new deployment
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
