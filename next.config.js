@@ -18,6 +18,10 @@ const nextConfig = {
     });
     return config;
   },
+  // Enable client-side navigation
+  reactStrictMode: true,
+  // Disable static optimization for all pages
+  staticPageGenerationTimeout: 1000,
 }
 
 module.exports = nextConfig 
