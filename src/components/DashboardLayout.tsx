@@ -23,13 +23,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   ];
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
+    await signOut();
   };
 
   return (
     <div>
       {/* Mobile sidebar */}
-      <div className="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+      <div className={`relative z-50 lg:hidden ${isSidebarOpen ? "block" : "hidden"}`} role="dialog" aria-modal="true">
         {/* Background overlay */}
         <div className="fixed inset-0 bg-gray-900/80"></div>
 

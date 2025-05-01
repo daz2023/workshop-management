@@ -25,7 +25,7 @@ export default function SignUpPage() {
       await signUp(email, password);
       router.push('/');
     } catch (error) {
-      setError('Error creating account');
+      setError(error instanceof Error ? error.message : "Error creating account");
     }
   };
 
