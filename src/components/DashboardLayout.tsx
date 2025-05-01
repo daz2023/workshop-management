@@ -4,14 +4,16 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const { signOut } = useAuth();
 
   const navigation = [
     { name: 'Dashboard', href: '/' },
@@ -37,7 +39,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               <button
                 type="button"
                 className="-m-2.5 p-2.5"
-                onClick={() => setSidebarOpen(false)}
+                onClick={() => setIsSidebarOpen(false)}
               >
                 <span className="sr-only">Close sidebar</span>
                 <svg
@@ -140,7 +142,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <button
           type="button"
           className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
-          onClick={() => setSidebarOpen(true)}
+          onClick={() => setIsSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
           <svg

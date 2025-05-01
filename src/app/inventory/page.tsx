@@ -445,7 +445,7 @@ export default function InventoryPage() {
             <div className="bg-white rounded-lg p-6 max-w-md w-full">
               <h2 className="text-lg font-medium mb-4">Delete Part</h2>
               <p className="text-sm text-gray-500 mb-6">
-                Are you sure you want to delete "{selectedPart.name}"? This action cannot be undone.
+                Are you sure you want to delete &quot;{selectedPart.name}&quot;? This action cannot be undone.
               </p>
               <div className="flex justify-end space-x-3">
                 <button

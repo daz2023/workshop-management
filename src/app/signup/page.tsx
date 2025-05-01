@@ -23,9 +23,9 @@ export default function SignUpPage() {
 
     try {
       await signUp(email, password);
-      router.push('/dashboard');
-    } catch (err) {
-      setError('Error creating account. Please try again.');
+      router.push('/');
+    } catch (error) {
+      setError('Error creating account');
     }
   };
 
